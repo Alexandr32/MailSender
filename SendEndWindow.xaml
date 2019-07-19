@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfTestMailSender"
         mc:Ignorable="d"
         Title="SendEndWindow" Height="200" Width="350">
-    <Grid Background="{StaticResource BackgroundKey}">
+    <Grid>
         <Label x:Name="labelMessage" Content="Работа завершена" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
         <Button Content="Закрыть" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Center" Width="75" Click="Button_Click"/>
 
