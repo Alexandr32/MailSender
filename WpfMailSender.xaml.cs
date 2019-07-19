@@ -27,11 +27,11 @@ namespace WpfTestMailSender
 
         private void BtnSendEmail_Click(object sender, RoutedEventArgs e)
         {
-            EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass
-            {
-                StrPassword = passwordBox.Password
-            };
-            emailSendServiceClass.SendEmail();
+            //EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass
+            //{
+            //    StrPassword = passwordBox.Password
+            //};
+            //emailSendServiceClass.SendEmail();
         }
     }
 }

@@ -5,11 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTestMailSender"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="500">
-    <Grid>
-        
-        <PasswordBox x:Name="passwordBox" Width="135" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btnSendEmail" Content="Отравить email" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Center" Width="135" Click="BtnSendEmail_Click"/>
+        Title="Рассыльщик" Height="550" Width="600">
+    <DockPanel Background="{StaticResource BackgroundKey}">
 
-    </Grid>
+        <Menu Background="{StaticResource BackgroundKey}" Width="Auto" Height="30" DockPanel.Dock="Top" VerticalAlignment="Top">
+            <MenuItem Header="Файл" Height="30">
+                <MenuItem Header="Смена пользователя" Height="30"></MenuItem>
+                <MenuItem Header="Выход" Height="30"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <TabControl Height="Auto">
+            <TabItem Header="Формирование группы рассылки">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Планировщик">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Редактор писем">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Статистика">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+
+
+
+
+
+
+    </DockPanel>
 </Window>
