@@ -11,5 +11,17 @@ namespace WpfTestMailSender
     /// </summary>
     class DBClass
     {
+        private EmailsDataContext emails = new EmailsDataContext();
+
+        /// <summary>
+        /// Все данные извлеченные из БД
+        /// </summary>
+        public IQueryable<Email> Emails
+        {
+            get
+            {
+                return from c in emails.Email select c;
+            }
+        }
     }
 }
