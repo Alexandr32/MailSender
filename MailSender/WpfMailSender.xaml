@@ -1,0 +1,117 @@
+﻿<Controls:MetroWindow x:Class="WpfTestMailSender.WpfMailSender"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:TabSwitcher="clr-namespace:TabSwitcher;assembly=TabSwitcher"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:WpfTestMailSender"
+                      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                      mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="Рассыльщик спама" Height="550" Width="1200">
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Настройки" local:ContextMenuLeftClickBehavior.IsLeftClickEnabled="True">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Смена пользователя"></MenuItem>
+                        <MenuItem Header="Выход" Click="MenuItem_Click"></MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <DockPanel>
+        <Controls:MetroAnimatedSingleRowTabControl x:Name="tabControl" Margin="10,10,10,10" TabStripPlacement="Left" Height="Auto" >
+            <TabItem Header="Формирование группы">
+                <Grid Background="#FFE5E5E5" Margin="10,10,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ToolBarTray Grid.Row="0" Margin="5,5,5,5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto">
+                        <ToolBar x:Name="tbSender" Height="35" VerticalAlignment="Top" Width="Auto">
+                            <Label x:Name="lSender" Content="Выбрать отправителя" Width="130" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Controls:ControlsHelper.ContentCharacterCasing="Upper"/>
+                            <ComboBox x:Name="cbSenderSelect" Height="25" VerticalAlignment="Center" Width="270">
+                                
+                            </ComboBox>
+                            <Button x:Name="btnAddSender" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" />
+                            <Button x:Name="btnEditSender" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" FontSize="9"/>
+                            <Button x:Name="btnDeleteSender" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
+                        </ToolBar>
+
+                        <ToolBar x:Name="tbSmtp" HorizontalAlignment="Left" Height="35" VerticalAlignment ="Center" Width="Auto" Band="1" BandIndex="0" >
+                            <Label x:Name="lSmtp" Content="Выбрать smtp-сервер" Height="25" Width = "Auto" VerticalAlignment="Center" />
+                            <ComboBox x:Name = "cbSmtpSelect" Height = "25" Margin = "0" VerticalAlignment = "Center" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" >
+
+                            </ComboBox>
+                            <Button x:Name="btnAddSmtp" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" />
+                            <Button x:Name="btnEditSmtp" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" FontSize="9"/>
+                            <Button x:Name="btnDeleteSmtp" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
+                        </ToolBar>
+
+                        <ToolBar x:Name="tbPlanner" HorizontalAlignment = "Left" Height = "35" Width="200" VerticalAlignment = "Top" Band = "0" BandIndex = "1" >
+                            <TabSwitcher:TabSwitcherControl btnNextClick="TabSwitcherControl_btnNextClick" btnPreviousClick="TabSwitcherControl_btnPreviousClick"/>
+                        </ToolBar>
+                        
+
+                        <ToolBar x:Name="tbAddressee" HorizontalAlignment="Left" Height="35" VerticalAlignment = "Top" Width = "230" Band = "1" BandIndex = "1" >
+                            <Label x:Name = "lAddressee" Content = "Список адресатов" Height = "25" Width = "Auto" />
+                            <Button x:Name="btnAddAddressee" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" />
+                            <Button x:Name="btnEditAddressee" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" FontSize="9"/>
+                            <Button x:Name="btnDeleteAddressee" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
+                        </ToolBar>
+
+                    </ToolBarTray>
+
+                    <DataGrid x:Name="dgEmails" Grid.Row="1" Margin="5,0,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabPlanner"  Header="Планировщик">
+                <Grid Margin="10,10,10,10" Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Calendar Grid.Row="0" x:Name="cldSchedulDateTimes" HorizontalAlignment="Left" Margin="5,5,5,5" VerticalAlignment="Top" SelectionMode="MultipleRange"/>
+                    <xctk:TimePicker x:Name="tbTimePicker" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,8,5,5" Width="179" />
+                    <Button x:Name="btnSend" Style="{DynamicResource SquareButtonStyle}" Margin="5,0,0,6" Grid.Row="2" Content="Отправить запланированно" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Click="BtnSend_Click"></Button>
+                    <Button x:Name="btnSendAtOnce" Style="{StaticResource AccentedSquareButtonStyle}" Margin="5,0,0,5" Grid.Row="3" Content="Отправить Сразу" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Click="BtnSendAtOnce_Click"></Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Редактор текста">
+                <Grid Background="#FFE5E5E5">
+                    <RichTextBox Margin="10,10,10,10">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Статистика">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+
+
+
+
+    </DockPanel>
+</Controls:MetroWindow>
