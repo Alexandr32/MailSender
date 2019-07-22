@@ -17,6 +17,19 @@ namespace WpfTestMailSender
             get { return dicSenders; }
         }
 
+        public static Dictionary<string, int> SmtpClient
+        {
+            get { return listSmtpClient; }
+        }
+
+        // Возвращает список почт от имени которых можно выполнить отправку
+        private static Dictionary<string, int> listSmtpClient = new Dictionary<string, int>()
+        {
+            { "smtp.yandex.ru", 25 },
+            { "smtp.gmail.com", 58 },
+            { "smtp.mail.ru", 25 }
+        };
+
         // Возвращает список почт от имени которых можно выполнить отправку
         private static Dictionary<string, string> dicSenders = new Dictionary<string, string>()
         {

@@ -33,6 +33,10 @@ namespace WpfTestMailSender
             cbSenderSelect.DisplayMemberPath = "Key";
             cbSenderSelect.SelectedValuePath = "Value";
 
+            cbSmtpSelect.ItemsSource = VariablesClass.Senders;
+            cbSmtpSelect.DisplayMemberPath = "Key";
+            cbSmtpSelect.SelectedValuePath = "Value";
+
             db = new DBClass();
             dgEmails.ItemsSource = db.Emails;
         }
