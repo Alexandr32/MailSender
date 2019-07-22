@@ -96,8 +96,8 @@
                 <Grid Background="#FFE5E5E5">
                     <RichTextBox Margin="10,10,10,10">
                         <FlowDocument>
-                            <Paragraph>
-                                <Run Text="RichTextBox"/>
+                            <Paragraph >
+                                <Run x:Name="editTextBodyMail"/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>

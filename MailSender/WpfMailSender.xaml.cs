@@ -33,7 +33,7 @@ namespace WpfTestMailSender
             cbSenderSelect.DisplayMemberPath = "Key";
             cbSenderSelect.SelectedValuePath = "Value";
 
-            cbSmtpSelect.ItemsSource = VariablesClass.Senders;
+            cbSmtpSelect.ItemsSource = VariablesClass.SmtpClient;
             cbSmtpSelect.DisplayMemberPath = "Key";
             cbSmtpSelect.SelectedValuePath = "Value";
 
@@ -86,7 +86,18 @@ namespace WpfTestMailSender
                 return;
             }
 
-            EmailSendServiceClass emailSender = new EmailSendServiceClass(strLogin, strPassword);
+            if (string.IsNullOrEmpty(editTextBodyMail.Text))
+            {
+                MessageBox.Show("Введите текст письма");
+                return;
+            }
+
+
+
+            EmailSendServiceClass emailSender = new EmailSendServiceClass(strLogin, strPassword)
+            {
+                StrBody = editTextBodyMail.Text
+            };
 
             // Передаем данные из Grid со списком адресов
             emailSender.SendMails((IQueryable<Email>)dgEmails.ItemsSource);

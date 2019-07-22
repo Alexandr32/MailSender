@@ -25,12 +25,11 @@ namespace WpfTestMailSender
         // порт для smtp-server
         private int iSmtpPort = 25;
         // текст письма для отправки
-        private string strBody;
+        public string StrBody { get; set; }
         // тема письма для отправки
         private string strSubject;
         #endregion
 
-        SendEndWindow sendEndWindow;
 
         public EmailSendServiceClass(string sLogin, string sPassword)
         {
@@ -47,7 +46,7 @@ namespace WpfTestMailSender
             using (MailMessage mm = new MailMessage(strLogin, mail))
             {
                 mm.Subject = strSubject;
-                mm.Body = "Hello world!";
+                mm.Body = StrBody;
                 mm.IsBodyHtml = false;
                 SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort)
                 {
@@ -63,11 +62,11 @@ namespace WpfTestMailSender
                 }
                 catch (Exception ex)
                 {
-                    SendEndWindow windowError = new SendEndWindow();
-                    windowError.ShowMessage("Невозможно отправить письмо " + ex.ToString());
+                    
+                    MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
                 }
 
-                sendEndWindow.ShowMessage("Работа завершена.");
+                MessageBox.Show("Работа завершена.");
             }
 
         }
