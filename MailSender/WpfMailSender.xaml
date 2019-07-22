@@ -54,8 +54,8 @@
                             <Button x:Name="btnDeleteSmtp" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
                         </ToolBar>
 
-                        <ToolBar x:Name="tbPlanner" HorizontalAlignment = "Left" Height = "35" Width="200" VerticalAlignment = "Top" Band = "0" BandIndex = "1" >
-                            <TabSwitcher:TabSwitcherControl btnNextClick="TabSwitcherControl_btnNextClick" btnPreviousClick="TabSwitcherControl_btnPreviousClick"/>
+                        <ToolBar x:Name="tbPlanner" HorizontalAlignment = "Left" VerticalAlignment = "Top" Band = "0" BandIndex = "1" >
+                            <TabSwitcher:TabSwitcherControl btnNextClick="TabSwitcherControl_btnNextClick" btnPreviousClick="TabSwitcherControl_btnPreviousClick" IsHidebtnPrevious="True"/>
                         </ToolBar>
                         
 

@@ -5,15 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TabSwitcher"
              mc:Ignorable="d" 
-             Height="35" Width="Auto" >
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="btnPrevious" Grid.Column="0" VerticalAlignment="Stretch" Content="Назад" Click="BtnPrevious_Click"/>
-        <Button x:Name="btnNext" Grid.Column="1" VerticalAlignment="Stretch" Content="Вперед" Click="BtnNext_Click"/>
+             Height="35" >
+    <StackPanel Orientation="Horizontal">
+        
+        <Button x:Name="btnPrevious" Margin="2,2,2,2" Style="{StaticResource AccentedSquareButtonStyle}" Content="Назад" Click="BtnPrevious_Click" />
+        <Button x:Name="btnNext" Margin="2,2,2,2" Style="{StaticResource AccentedSquareButtonStyle}" Content="Вперед" Click="BtnNext_Click" />
 
-    </Grid>
+    </StackPanel>
 </UserControl>

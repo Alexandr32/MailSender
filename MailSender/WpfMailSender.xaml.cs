@@ -117,7 +117,7 @@ namespace WpfTestMailSender
 
         private void TabSwitcherControl_btnNextClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("btnNextClick");
+            tabControl.SelectedIndex = 1;
         }
 
         private void TabSwitcherControl_btnPreviousClick(object sender, RoutedEventArgs e)
