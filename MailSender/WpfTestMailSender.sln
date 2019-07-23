@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestMailSender", "WpfTestMailSender.csproj", "{C8868E5A-92A1-4AA5-A3A9-83CA67750F2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePasswordDLL", "..\CodePasswordDLL\CodePasswordDLL.csproj", "{78A8E4E6-8469-4D8E-908D-07527DA37C59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodePasswordDLL", "..\CodePasswordDLL\CodePasswordDLL.csproj", "{78A8E4E6-8469-4D8E-908D-07527DA37C59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabSwitcher", "..\TabSwitcher\TabSwitcher.csproj", "{A56216AA-3C13-4AAA-A85D-E3356172CC53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyToolBar", "..\MyToolBar\MyToolBar.csproj", "{DD990AEF-62B6-497A-B0F9-A25480ED8111}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A56216AA-3C13-4AAA-A85D-E3356172CC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A56216AA-3C13-4AAA-A85D-E3356172CC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A56216AA-3C13-4AAA-A85D-E3356172CC53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD990AEF-62B6-497A-B0F9-A25480ED8111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD990AEF-62B6-497A-B0F9-A25480ED8111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD990AEF-62B6-497A-B0F9-A25480ED8111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD990AEF-62B6-497A-B0F9-A25480ED8111}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

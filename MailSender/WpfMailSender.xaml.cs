@@ -29,13 +29,9 @@ namespace WpfTestMailSender
             InitializeComponent();
 
             // Передача данных почт отправителей
-            cbSenderSelect.ItemsSource = VariablesClass.Senders;
-            cbSenderSelect.DisplayMemberPath = "Key";
-            cbSenderSelect.SelectedValuePath = "Value";
+            tbSender.ComboBoxSenders = VariablesClass.Senders;
 
-            cbSmtpSelect.ItemsSource = VariablesClass.SmtpClient;
-            cbSmtpSelect.DisplayMemberPath = "Key";
-            cbSmtpSelect.SelectedValuePath = "Value";
+            tbSmtp.ComboBoxSmtpClient = VariablesClass.SmtpClient;
 
             db = new DBClass();
             dgEmails.ItemsSource = db.Emails;
@@ -43,11 +39,7 @@ namespace WpfTestMailSender
 
         private void BtnSendEmail_Click(object sender, RoutedEventArgs e)
         {
-            //EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass
-            //{
-            //    StrPassword = passwordBox.Password
-            //};
-            //emailSendServiceClass.SendEmail();
+            
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -73,8 +65,8 @@ namespace WpfTestMailSender
         private void BtnSendAtOnce_Click(object sender, RoutedEventArgs e)
         {
             // cbSenderSelect - элемент выбор отправителя
-            string strLogin = cbSenderSelect.Text;
-            string strPassword = cbSenderSelect.SelectedValue.ToString();
+            string strLogin = tbSender.SelectedText;
+            string strPassword = tbSender.SelectedValue;
             if (string.IsNullOrEmpty(strLogin))
             {
                 MessageBox.Show("Выберите отправителя");
@@ -124,7 +116,7 @@ namespace WpfTestMailSender
                 return;
             }
             EmailSendServiceClass emailSender = new
-            EmailSendServiceClass(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString());
+            EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
             sc.SendEmails(dtSendDateTime, emailSender, (IQueryable<Email>)dgEmails.ItemsSource);
 
 

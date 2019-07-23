@@ -6,8 +6,9 @@
         xmlns:TabSwitcher="clr-namespace:TabSwitcher;assembly=TabSwitcher"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:WpfTestMailSender"
-                      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-                      mc:Ignorable="d"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:MyToolBar="clr-namespace:MyToolBar;assembly=MyToolBar"
+        mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         GlowBrush="{DynamicResource AccentColorBrush}"
         Title="Рассыльщик спама" Height="550" Width="1200">
@@ -34,36 +35,21 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <ToolBarTray Grid.Row="0" Margin="5,5,5,5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto">
-                        <ToolBar x:Name="tbSender" Height="35" VerticalAlignment="Top" Width="Auto">
-                            <Label x:Name="lSender" Content="Выбрать отправителя" Width="130" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Controls:ControlsHelper.ContentCharacterCasing="Upper"/>
-                            <ComboBox x:Name="cbSenderSelect" Height="25" VerticalAlignment="Center" Width="270">
-                                
-                            </ComboBox>
-                            <Button x:Name="btnAddSender" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" />
-                            <Button x:Name="btnEditSender" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" FontSize="9"/>
-                            <Button x:Name="btnDeleteSender" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
-                        </ToolBar>
-
-                        <ToolBar x:Name="tbSmtp" HorizontalAlignment="Left" Height="35" VerticalAlignment ="Center" Width="Auto" Band="1" BandIndex="0" >
-                            <Label x:Name="lSmtp" Content="Выбрать smtp-сервер" Height="25" Width = "Auto" VerticalAlignment="Center" />
-                            <ComboBox x:Name = "cbSmtpSelect" Height = "25" Margin = "0" VerticalAlignment = "Center" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" >
-
-                            </ComboBox>
-                            <Button x:Name="btnAddSmtp" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" />
-                            <Button x:Name="btnEditSmtp" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" FontSize="9"/>
-                            <Button x:Name="btnDeleteSmtp" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
-                        </ToolBar>
-
-                        <ToolBar x:Name="tbPlanner" HorizontalAlignment = "Left" VerticalAlignment = "Top" Band = "0" BandIndex = "1" >
-                            <TabSwitcher:TabSwitcherControl btnNextClick="TabSwitcherControl_btnNextClick" btnPreviousClick="TabSwitcherControl_btnPreviousClick" IsHidebtnPrevious="True"/>
-                        </ToolBar>
                         
+                        <ToolBar Band="1" BandIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                            <MyToolBar:ToolBarControl x:Name="tbSmtp" TextLabel="Выбрать smtp-сервер" VerticalAlignment = "Top" />
+                        </ToolBar>
 
-                        <ToolBar x:Name="tbAddressee" HorizontalAlignment="Left" Height="35" VerticalAlignment = "Top" Width = "230" Band = "1" BandIndex = "1" >
-                            <Label x:Name = "lAddressee" Content = "Список адресатов" Height = "25" Width = "Auto" />
-                            <Button x:Name="btnAddAddressee" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" />
-                            <Button x:Name="btnEditAddressee" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" FontSize="9"/>
-                            <Button x:Name="btnDeleteAddressee" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
+                        <ToolBar Band="2" BandIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto">
+                            <MyToolBar:ToolBarControl x:Name="tbSender" IsVisibalComboBox="True" VerticalAlignment="Top" TextLabel="Выбор отправитея" />
+                        </ToolBar>
+
+                        <ToolBar Band="2" BandIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto">
+                            <MyToolBar:ToolBarControl x:Name="tbAddressee" IsVisibalComboBox="False" VerticalAlignment="Top" TextLabel="Список адресатов" />
+                        </ToolBar>
+
+                        <ToolBar Band="1" BandIndex="1" x:Name="tbPlanner" HorizontalAlignment = "Left" VerticalAlignment = "Top" >
+                            <TabSwitcher:TabSwitcherControl Height="40" btnNextClick="TabSwitcherControl_btnNextClick" btnPreviousClick="TabSwitcherControl_btnPreviousClick" IsHidebtnPrevious="True"/>
                         </ToolBar>
 
                     </ToolBarTray>
