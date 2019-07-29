@@ -17,7 +17,7 @@ namespace WpfTestMailSender.Services
         int CreateEmail(Email email);
     }
 
-    class DataAccessService : IDataAccessService
+    public class DataAccessService : IDataAccessService
     {
         // Контекст данных получаемый из БД
         EmailsDataContext context;

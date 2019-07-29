@@ -94,8 +94,6 @@ namespace WpfTestMailSender.ViewModel
             Emails = new ObservableCollection<Email>();
             // Передаем свойтву каой метод оно должно подтавлять при вызови этого св-ва
             ReadAllCommand = new RelayCommand(GetEmails);
-
-            ReadAllCommand = new RelayCommand(GetEmails);
             SaveCommand = new RelayCommand<Email>(SaveEmail);
 
             ////if (IsInDesignMode)

@@ -14,6 +14,7 @@
 
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
+using WpfTestMailSender.Services;
 
 namespace WpfTestMailSender.ViewModel
 {
@@ -41,8 +42,11 @@ namespace WpfTestMailSender.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            // Используется шаблон сервис-локатор
             // IOC-контейнере регистрируется класс MainViewModel
             SimpleIoc.Default.Register<MainViewModel>();
+            // Подстановка данных из которых брать данные
+            SimpleIoc.Default.Register<IDataAccessService, DataAccessService>();
         }
 
         /// <summary>
