@@ -33,8 +33,8 @@ namespace WpfTestMailSender
         // Возвращает список почт от имени которых можно выполнить отправку
         private static Dictionary<string, string> dicSenders = new Dictionary<string, string>()
         {
-            { "79257443993@yandex.ru", CodePassword.GetPassword("1234l;i") },
-            { "sok74@yandex.ru", CodePassword.GetPassword(";liq34tjk") }
+            { "alex3289btnktest@yandex.ru", CodePassword.GetPassword("by43AA9:uftu") },
+            { "alex3289btnktest2@yandex.ru", CodePassword.GetPassword("by43AA9:uftu3") }
         };
     }
 }

@@ -1,0 +1,116 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\Decoding.csproj": {}
+  },
+  "projects": {
+    "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj",
+        "projectName": "CodePasswordDLL",
+        "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\Decoding.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\Decoding.csproj",
+        "projectName": "Decoding",
+        "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\Decoding.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj": {
+                "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

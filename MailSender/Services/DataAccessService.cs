@@ -28,7 +28,7 @@ namespace WpfTestMailSender.Services
         }
 
         /// <summary>
-        /// Создает новое письмо
+        /// Создает новую запись
         /// </summary>
         /// <param name="email"></param>
         /// <returns>Возвращает Id письма.</returns>
@@ -39,6 +39,10 @@ namespace WpfTestMailSender.Services
             return email.Id;
         }
 
+        /// <summary>
+        /// Запрос почт из БД
+        /// </summary>
+        /// <returns></returns>
         public ObservableCollection<Email> GetEmails()
         {
             ObservableCollection<Email> Emails = new ObservableCollection<Email>();

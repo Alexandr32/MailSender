@@ -72,6 +72,10 @@ namespace WpfTestMailSender
 
         }
 
+        /// <summary>
+        /// Отправка нескольких писем
+        /// </summary>
+        /// <param name="emails"></param>
         public void SendMails(ObservableCollection<Email> emails)
         {
             foreach (Email email in emails)
