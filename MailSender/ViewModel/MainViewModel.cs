@@ -37,6 +37,22 @@ namespace WpfTestMailSender.ViewModel
         }
 
 
+        string _Name = string.Empty;
+        /// <summary>
+        /// Свойство для поика по имени
+        /// </summary>
+        public string Name
+        {
+            get => _Name;
+            set
+            {
+                _Name = value;
+                RaisePropertyChanged(nameof(Name));
+                // Обновляем данные по поиску
+                GetEmails();
+            }
+        }
+
         Email _EmailInfo;
         /// <summary>
         /// Информация об полуателе писма
@@ -63,6 +79,8 @@ namespace WpfTestMailSender.ViewModel
             {
                 Emails.Add(EmailInfo);
                 RaisePropertyChanged(nameof(EmailInfo));
+                // Обновляем список
+                GetEmails();
             }
         }
 
@@ -75,7 +93,14 @@ namespace WpfTestMailSender.ViewModel
             Emails.Clear();
             foreach (var item in _serviceProxy.GetEmails())
             {
-                Emails.Add(item);
+                if (Name == string.Empty)
+                {
+                    Emails.Add(item);
+                }
+                else if(_Name.ToLower().Contains(item.Name.ToLower()))
+                {
+                    Emails.Add(item);
+                }
             }
         }
 
@@ -92,6 +117,7 @@ namespace WpfTestMailSender.ViewModel
         {
             _serviceProxy = servProxy;
             Emails = new ObservableCollection<Email>();
+            EmailInfo = new Email();
             // Передаем свойтву каой метод оно должно подтавлять при вызови этого св-ва
             ReadAllCommand = new RelayCommand(GetEmails);
             SaveCommand = new RelayCommand<Email>(SaveEmail);
