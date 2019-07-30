@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfTestMailSender.ViewModel;
 
 namespace WpfTestMailSender
 {
@@ -33,13 +34,13 @@ namespace WpfTestMailSender
 
             tbSmtp.ComboBoxSmtpClient = VariablesClass.SmtpClient;
 
-            db = new DBClass();
-            dgEmails.ItemsSource = db.Emails;
+            //db = new DBClass();
+            //dgEmails.ItemsSource = db.Emails;
         }
 
         private void BtnSendEmail_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -92,7 +93,12 @@ namespace WpfTestMailSender
             };
 
             // Передаем данные из Grid со списком адресов
-            emailSender.SendMails((IQueryable<Email>)dgEmails.ItemsSource);
+            //emailSender.SendMails((IQueryable<Email>)dgEmails.ItemsSource);
+
+            // Получаем доступ к ViewModelLocator
+            var locator = (ViewModelLocator)FindResource("Locator");
+            // Передаем данные в созданный пользовательский контрол
+            emailSender.SendMails(locator.Main.Emails);
         }
 
         /// <summary>
@@ -117,8 +123,12 @@ namespace WpfTestMailSender
             }
             EmailSendServiceClass emailSender = new
             EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
-            sc.SendEmails(dtSendDateTime, emailSender, (IQueryable<Email>)dgEmails.ItemsSource);
+            //sc.SendEmails(dtSendDateTime, emailSender, (Obse<Email>)dgEmails.ItemsSource);
 
+            // Получаем доступ к ViewModelLocator
+            var locator = (ViewModelLocator)FindResource("Locator");
+            // Передаем данные в созданный пользовательский контрол
+            sc.SendEmails(dtSendDateTime, emailSender, locator.Main.Emails);
 
         }
 
@@ -129,7 +139,7 @@ namespace WpfTestMailSender
 
         private void TabSwitcherControl_btnPreviousClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("btnPreviousClick");
+            
         }
     }
 }
