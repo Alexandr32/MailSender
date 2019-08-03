@@ -13,7 +13,7 @@ namespace MailSenderNameSpace
     /// Класс-планировщик, который создает расписание, следит за его выполнением и напоминает о событиях
     /// Также помогает автоматизировать рассылку писем в соответствии с расписанием
     /// </summary>
-    class SchedulerClass
+    public class SchedulerClass
     {
         // Таймер
         DispatcherTimer timer = new DispatcherTimer();
@@ -26,7 +26,19 @@ namespace MailSenderNameSpace
 
         // Коллекция email-ов адресатов
         ObservableCollection<Email> emails;
-        
+
+        Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
+        public Dictionary<DateTime, string> DatesEmailTexts
+        {
+            get { return dicDates; }
+            set
+            {
+                dicDates = value;
+                dicDates = dicDates.OrderBy(pair => pair.Key).ToDictionary(pair =>
+                pair.Key, pair => pair.Value);
+            }
+        }
+
         /// <summary>
         /// Метод, который превращает строку из текстбокса tbTimePicker в TimeSpan
         /// </summary>
@@ -63,12 +75,26 @@ namespace MailSenderNameSpace
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
+            if (dicDates.Count == 0)
             {
-                emailSender.SendMails(emails);
                 timer.Stop();
                 MessageBox.Show("Письма отправлены.");
             }
+            else if (dicDates.Keys.First<DateTime>().ToShortTimeString() ==  DateTime.Now.ToShortTimeString())
+            {
+                emailSender.Body = dicDates[dicDates.Keys.First<DateTime>()];
+                emailSender.Subject = $"Рассылка от { dicDates.Keys.First<DateTime>().ToShortTimeString()}";
+                emailSender.SendMails(emails);
+                dicDates.Remove(dicDates.Keys.First<DateTime>());
+            }
+
+
+            //if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
+            //{
+            //    emailSender.SendMails(emails);
+            //    timer.Stop();
+            //    MessageBox.Show("Письма отправлены.");
+            //}
         }
     }
 }

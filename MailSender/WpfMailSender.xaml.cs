@@ -23,7 +23,7 @@ namespace MailSenderNameSpace
     public partial class WpfMailSender : MetroWindow
     {
 
-        DBClass db;
+        //DBClass db;
 
         public WpfMailSender()
         {
@@ -89,7 +89,7 @@ namespace MailSenderNameSpace
 
             EmailSendServiceClass emailSender = new EmailSendServiceClass(strLogin, strPassword)
             {
-                StrBody = editTextBodyMail.Text
+                Body = editTextBodyMail.Text
             };
 
             // Передаем данные из Grid со списком адресов

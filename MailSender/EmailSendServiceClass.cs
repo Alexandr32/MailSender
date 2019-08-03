@@ -13,7 +13,7 @@ namespace MailSenderNameSpace
     /// <summary>
     /// Класс для отправки писем
     /// </summary>
-    class EmailSendServiceClass
+    public class EmailSendServiceClass
     {
 
         #region vars
@@ -26,9 +26,9 @@ namespace MailSenderNameSpace
         // порт для smtp-server
         private int iSmtpPort = 25;
         // текст письма для отправки
-        public string StrBody { get; set; }
+        public string Body { get; set; }
         // тема письма для отправки
-        private string strSubject;
+        public string Subject = "Тест"; // Заголовок письма нигде не задается (!) исправить
         #endregion
 
 
@@ -46,8 +46,8 @@ namespace MailSenderNameSpace
 
             using (MailMessage mm = new MailMessage(strLogin, mail))
             {
-                mm.Subject = strSubject;
-                mm.Body = StrBody;
+                mm.Subject = Subject;
+                mm.Body = Body;
                 mm.IsBodyHtml = false;
                 SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort)
                 {

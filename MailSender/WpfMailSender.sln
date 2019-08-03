@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyToolBar", "..\MyToolBar\M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Decoding", "..\Decoding\Decoding.csproj", "{029F4BFD-3ED7-49C6-9FBB-7DDC2B131124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePasswordDLL.Tests", "..\CodePasswordDLL.Tests\CodePasswordDLL.Tests.csproj", "{12C3B072-D880-48AF-967C-4174384C68D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.Tests", "..\MailSender.Tests1\MailSender.Tests.csproj", "{1EF67D14-1D58-4EA2-8D9E-05B947353637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{029F4BFD-3ED7-49C6-9FBB-7DDC2B131124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{029F4BFD-3ED7-49C6-9FBB-7DDC2B131124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{029F4BFD-3ED7-49C6-9FBB-7DDC2B131124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C3B072-D880-48AF-967C-4174384C68D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C3B072-D880-48AF-967C-4174384C68D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C3B072-D880-48AF-967C-4174384C68D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C3B072-D880-48AF-967C-4174384C68D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF67D14-1D58-4EA2-8D9E-05B947353637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF67D14-1D58-4EA2-8D9E-05B947353637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF67D14-1D58-4EA2-8D9E-05B947353637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF67D14-1D58-4EA2-8D9E-05B947353637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
