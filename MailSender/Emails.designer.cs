@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfTestMailSender
+namespace MailSenderNameSpace
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -36,7 +36,7 @@ namespace WpfTestMailSender
     #endregion
 		
 		public EmailsDataContext() : 
-				base(global::WpfTestMailSender.Properties.Settings.Default.MailsAndSendersConnectionString, mappingSource)
+				base(global::MailSenderNameSpace.Properties.Settings.Default.MailsAndSendersConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -75,8 +75,8 @@ namespace WpfTestMailSender
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Email")]
-	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged, IDataErrorInfo
-    {
+	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
@@ -162,22 +162,8 @@ namespace WpfTestMailSender
 				}
 			}
 		}
-
-        public string Error { get => ""; }
-
-        public string this[string propertyName]
-        {
-            get
-            {
-                if (propertyName == "Value")
-                {
-                    if (_Value != null && _Value.Length < 4) return "Необходимо указать правильный e-mail!";
-                }
-                return "";
-            }
-        }
-
-        public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		

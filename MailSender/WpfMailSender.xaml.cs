@@ -13,9 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfTestMailSender.ViewModel;
+using MailSenderNameSpace.ViewModel;
 
-namespace WpfTestMailSender
+namespace MailSenderNameSpace
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

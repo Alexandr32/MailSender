@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
-namespace WpfTestMailSender
+namespace MailSenderNameSpace
 {
     /// <summary>
     /// Класс для вызова контекстного меню правой клавишей мышки

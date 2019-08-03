@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfTestMailSender.Services
+namespace MailSenderNameSpace.Services
 {
     /// <summary>
     /// Интерфейс для предотавления данных

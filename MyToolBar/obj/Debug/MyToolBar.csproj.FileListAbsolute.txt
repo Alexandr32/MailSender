@@ -11,3 +11,16 @@ E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\MyToolBar\obj\D
 E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\MyToolBar\obj\Debug\MyToolBar.csproj.CoreCompileInputs.cache
 E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\MyToolBar\obj\Debug\MyToolBar.dll
 E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\MyToolBar\obj\Debug\MyToolBar.pdb
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\bin\Debug\MyToolBar.dll
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\bin\Debug\MyToolBar.pdb
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.csprojAssemblyReference.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\ToolBarControl.g.cs
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar_MarkupCompile.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar_MarkupCompile.lref
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\ToolBarControl.baml
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.g.resources
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.Properties.Resources.resources
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.csproj.GenerateResource.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.csproj.CoreCompileInputs.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.dll
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\MyToolBar\obj\Debug\MyToolBar.pdb

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace WpfTestMailSender.DataValidation
+namespace MailSenderNameSpace.DataValidation
 {
     /// <summary>
     /// Класс для специальной проверки на корректность введенного значения id письма.

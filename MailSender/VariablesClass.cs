@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfTestMailSender
+namespace MailSenderNameSpace
 {
     /// <summary>
     /// Хранит возможных отправителей электронных писем

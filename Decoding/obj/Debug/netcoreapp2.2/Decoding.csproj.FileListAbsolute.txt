@@ -12,3 +12,17 @@ E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\Decoding\obj\De
 E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.csproj.CopyComplete
 E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.dll
 E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\WpfTestMailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.pdb
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\Decoding.deps.json
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\Decoding.runtimeconfig.json
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\Decoding.runtimeconfig.dev.json
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\Decoding.dll
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\Decoding.pdb
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\CodePasswordDLL.dll
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\bin\Debug\netcoreapp2.2\CodePasswordDLL.pdb
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.csprojAssemblyReference.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.csproj.CoreCompileInputs.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.AssemblyInfoInputs.cache
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.AssemblyInfo.cs
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.csproj.CopyComplete
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.dll
+E:\ALEX\geekbrains.ru\Уроки\C# Курс 3\GitHub\MailSender\Decoding\obj\Debug\netcoreapp2.2\Decoding.pdb

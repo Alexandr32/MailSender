@@ -709,11 +709,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\Decoding.csproj",
+      "projectUniqueName": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\GitHub\\MailSender\\Decoding\\Decoding.csproj",
       "projectName": "Decoding",
-      "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\Decoding.csproj",
+      "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\GitHub\\MailSender\\Decoding\\Decoding.csproj",
       "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-      "outputPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\Decoding\\obj\\",
+      "outputPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\GitHub\\MailSender\\Decoding\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -734,8 +734,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj": {
-              "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\WpfTestMailSender\\CodePasswordDLL\\CodePasswordDLL.csproj"
+            "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\GitHub\\MailSender\\CodePasswordDLL\\CodePasswordDLL.csproj": {
+              "projectPath": "E:\\ALEX\\geekbrains.ru\\Уроки\\C# Курс 3\\GitHub\\MailSender\\CodePasswordDLL\\CodePasswordDLL.csproj"
             }
           }
         }

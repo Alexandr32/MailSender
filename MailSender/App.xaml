@@ -19,7 +19,7 @@
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <SolidColorBrush x:Key="BackgroundKey" Color="#FFFFFF" />
-            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:WpfTestMailSender.ViewModel" />
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MailSenderNameSpace.ViewModel" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

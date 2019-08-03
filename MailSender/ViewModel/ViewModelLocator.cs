@@ -1,8 +1,8 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
-using WpfTestMailSender.Services;
+using MailSenderNameSpace.Services;
 
-namespace WpfTestMailSender.ViewModel
+namespace MailSenderNameSpace.ViewModel
 {
     /// <summary>
     /// Этот класс содержит статические ссылки на все модели представлений в

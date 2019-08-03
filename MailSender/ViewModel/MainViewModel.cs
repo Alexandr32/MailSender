@@ -3,9 +3,9 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
-using WpfTestMailSender.Services;
+using MailSenderNameSpace.Services;
 
-namespace WpfTestMailSender.ViewModel
+namespace MailSenderNameSpace.ViewModel
 {
     /// <summary>
     /// Этот класс содержит свойства, с которыми основное представление может связывать данные.

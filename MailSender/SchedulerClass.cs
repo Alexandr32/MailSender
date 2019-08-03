@@ -7,7 +7,7 @@ using System.Windows.Threading;
 using System.Windows;
 using System.Collections.ObjectModel;
 
-namespace WpfTestMailSender
+namespace MailSenderNameSpace
 {
     /// <summary>
     /// Класс-планировщик, который создает расписание, следит за его выполнением и напоминает о событиях

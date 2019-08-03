@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfTestMailSender
+namespace MailSenderNameSpace
 {
     /// <summary>
     /// Класс для работы с App.config
