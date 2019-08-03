@@ -1,6 +1,8 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 using WpfTestMailSender.Services;
 
 namespace WpfTestMailSender.ViewModel
@@ -25,33 +27,55 @@ namespace WpfTestMailSender.ViewModel
 
         public RelayCommand<Email> SaveCommand { get; set; }
 
-        ObservableCollection<Email> _Emails;
+        ObservableCollection<Email> _Emails = new ObservableCollection<Email>();
+
+        /// <summary>
+        /// Колекция с данными 
+        /// </summary>
         public ObservableCollection<Email> Emails
         {
             get => _Emails;
             set
             {
                 _Emails = value;
-                RaisePropertyChanged(nameof(Emails));
+                // Реализация поиска по имени
+                // Когда обновляется свой-во Emails создаем и обновляем данные св-ва EmailView
+                // которое отображается во view
+                _EmailView = new CollectionViewSource { Source = value };
+                _EmailView.Filter += (sender, e) => 
+                {
+                    if (!(e.Item is Email email) || string.IsNullOrWhiteSpace(_FilterName)) return;
+                    // Если строка не входит в искомый объект то сообщаем что строка не найдена
+                    if(!email.Name.Contains(_FilterName))
+                    {
+                        e.Accepted = false;
+                    }
+                };
+                // Обновляем привязку к свойству
+                RaisePropertyChanged(nameof(EmailView));
             }
         }
 
-
-        string _Name = string.Empty;
+        string _FilterName = string.Empty;
         /// <summary>
         /// Свойство для поика по имени
         /// </summary>
-        public string Name
+        public string FilterName
         {
-            get => _Name;
+            get => _FilterName;
             set
             {
-                _Name = value;
-                RaisePropertyChanged(nameof(Name));
-                // Обновляем данные по поиску
-                GetEmails();
+                _FilterName = value;
+                RaisePropertyChanged(nameof(FilterName));
             }
         }
+
+        // Данная коллецкия используется для реализации поиска по имени
+        CollectionViewSource _EmailView;
+        /// <summary>
+        /// Коллекция для отображения данных в том числе и после поиска 
+        /// </summary>
+        public ICollectionView EmailView => _EmailView?.View;
 
         Email _EmailInfo;
         /// <summary>
@@ -79,8 +103,6 @@ namespace WpfTestMailSender.ViewModel
             {
                 Emails.Add(EmailInfo);
                 RaisePropertyChanged(nameof(EmailInfo));
-                // Обновляем список
-                GetEmails();
             }
         }
 
@@ -93,14 +115,7 @@ namespace WpfTestMailSender.ViewModel
             Emails.Clear();
             foreach (var item in _serviceProxy.GetEmails())
             {
-                if (Name == string.Empty)
-                {
-                    Emails.Add(item);
-                }
-                else if(_Name.ToLower().Contains(item.Name.ToLower()))
-                {
-                    Emails.Add(item);
-                }
+                Emails.Add(item);
             }
         }
 
@@ -122,14 +137,6 @@ namespace WpfTestMailSender.ViewModel
             ReadAllCommand = new RelayCommand(GetEmails);
             SaveCommand = new RelayCommand<Email>(SaveEmail);
 
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
         }
     }
 }
