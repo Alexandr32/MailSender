@@ -117,6 +117,7 @@
     <Compile Include="AppConfigClass.cs" />
     <Compile Include="ContextMenuLeftClickBehavior.cs" />
     <Compile Include="DataMailSender.cs" />
+    <Compile Include="DataValidation\DataValidation.cs" />
     <Compile Include="DBClass.cs" />
     <Compile Include="Emails.designer.cs">
       <AutoGen>True</AutoGen>

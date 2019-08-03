@@ -24,5 +24,18 @@ namespace WpfTestMailSender.View
         {
             InitializeComponent();
         }
+
+        // Обработчик ошибок
+        public void TextBox_Error(object sendler, ValidationErrorEventArgs args)
+        {
+            if (args.Action == ValidationErrorEventAction.Added)
+            {
+                ((Control)sendler).ToolTip = args.Error.ToString(); 
+            }
+            else
+            {
+                ((Control)sendler).ToolTip = "";
+            }
+        }
     }
 }

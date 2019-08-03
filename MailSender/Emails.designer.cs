@@ -75,8 +75,8 @@ namespace WpfTestMailSender
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Email")]
-	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged
-	{
+	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged, IDataErrorInfo
+    {
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
@@ -162,8 +162,22 @@ namespace WpfTestMailSender
 				}
 			}
 		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
+
+        public string Error { get => ""; }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                if (propertyName == "Value")
+                {
+                    if (_Value != null && _Value.Length < 4) return "Необходимо указать правильный e-mail!";
+                }
+                return "";
+            }
+        }
+
+        public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		
