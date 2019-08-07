@@ -33,7 +33,7 @@ namespace MailSenderNameSpace
         // Возвращает список почт от имени которых можно выполнить отправку
         private static Dictionary<string, string> dicSenders = new Dictionary<string, string>()
         {
-            { "alex3289btnktest@yandex.ru", CodePassword.GetPassword("by43AA9:uftu") },
+            { "alex3289btnktest@yandex.ru", CodePassword.GetPassword("by43AA9:uftuA") },
             { "alex3289btnktest2@yandex.ru", CodePassword.GetPassword("by43AA9:uftu3") }
         };
     }

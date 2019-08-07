@@ -65,9 +65,11 @@ namespace MailSenderNameSpace
         /// <param name="e"></param>
         private void BtnSendAtOnce_Click(object sender, RoutedEventArgs e)
         {
-            // cbSenderSelect - элемент выбор отправителя
             string strLogin = tbSender.SelectedText;
             string strPassword = tbSender.SelectedValue;
+
+            //MessageBox.Show(string.Format("strLogin = {0} strPassword ={1}", strLogin, strPassword));
+
             if (string.IsNullOrEmpty(strLogin))
             {
                 MessageBox.Show("Выберите отправителя");
@@ -87,9 +89,14 @@ namespace MailSenderNameSpace
 
 
 
-            EmailSendServiceClass emailSender = new EmailSendServiceClass(strLogin, strPassword)
+            var emailSender = new EmailSendServiceClass(strLogin, strPassword)
             {
-                Body = editTextBodyMail.Text
+                // Получаем данные из контрода
+                StrSmtp = tbSmtp.SelectedText,
+                ISmtpPort = Convert.ToInt32(tbSmtp.SelectedValue),
+
+                Body = editTextBodyMail.Text,
+                Subject = "Рассылка"
             };
 
             // Передаем данные из Grid со списком адресов
@@ -97,8 +104,19 @@ namespace MailSenderNameSpace
 
             // Получаем доступ к ViewModelLocator
             var locator = (ViewModelLocator)FindResource("Locator");
-            // Передаем данные в созданный пользовательский контрол
-            emailSender.SendMails(locator.Main.Emails);
+
+            //string mail = "";
+            //foreach (var item in locator.Main.Emails)
+            //{
+            //    mail = mail + item.Name + " "; 
+            //}
+
+            //MessageBox.Show(mail);
+            //emailSender.SendMails(locator.Main.Emails);
+
+            SchedulerClass sc = new SchedulerClass();
+            //sc.DatesEmailTexts = emailInfo.
+            sc.SendEmails(emailSender, locator.Main.Emails);
         }
 
         /// <summary>
@@ -121,20 +139,19 @@ namespace MailSenderNameSpace
                 MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
                 return;
             }
-            EmailSendServiceClass emailSender = new
-            EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
+            EmailSendServiceClass emailSender = new EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
             //sc.SendEmails(dtSendDateTime, emailSender, (Obse<Email>)dgEmails.ItemsSource);
 
             // Получаем доступ к ViewModelLocator
             var locator = (ViewModelLocator)FindResource("Locator");
-            // Передаем данные в созданный пользовательский контрол
+
             sc.SendEmails(dtSendDateTime, emailSender, locator.Main.Emails);
 
         }
 
         private void TabSwitcherControl_btnNextClick(object sender, RoutedEventArgs e)
         {
-            tabControl.SelectedIndex = 1;
+            tabControl.SelectedIndex = 2;
         }
 
         private void TabSwitcherControl_btnPreviousClick(object sender, RoutedEventArgs e)

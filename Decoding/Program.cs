@@ -9,7 +9,7 @@ namespace Decoding
         {
             // Шифровка паролей
             Console.WriteLine("alex3289btnktest@yandex.ru");
-            string code = CodePassword.GetCodPassword("ax32@@89test");
+            string code = CodePassword.GetCodPassword("ax32@@89test@");
             Console.WriteLine(code);
             Console.WriteLine("Декодинг");
             Console.WriteLine(CodePassword.GetPassword(code));

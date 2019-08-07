@@ -15,7 +15,7 @@ namespace MailSenderNameSpace
         /// <summary>
         /// Почта отправителя
         /// </summary>
-        public static string Sender = "alex3289btnktest@yandex.ru";
+        public static string Sender = "alex3289btnk@yandex.ru";
 
         /// <summary>
         /// Протокол SMTP

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 using System.Windows;
 using System.Collections.ObjectModel;
@@ -17,10 +15,10 @@ namespace MailSenderNameSpace
     {
         // Таймер
         DispatcherTimer timer = new DispatcherTimer();
-        
+
         // Экземпляр класса, отвечающего за отправку писем
         EmailSendServiceClass emailSender;
-        
+
         // Дата и время отправки
         DateTime dtSend;
 
@@ -34,8 +32,7 @@ namespace MailSenderNameSpace
             set
             {
                 dicDates = value;
-                dicDates = dicDates.OrderBy(pair => pair.Key).ToDictionary(pair =>
-                pair.Key, pair => pair.Value);
+                dicDates = dicDates.OrderBy(pair => pair.Key).ToDictionary(pair =>  pair.Key, pair => pair.Value);
             }
         }
 
@@ -57,7 +54,7 @@ namespace MailSenderNameSpace
 
 
         /// <summary>
-        //// Непосредственно отправка писем
+        //// Отправка запланированных писем
         /// </summary>
         /// <param name="dtSend"></param>
         /// <param name="emailSender"></param>
@@ -71,6 +68,19 @@ namespace MailSenderNameSpace
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Start();
+        }
+
+        /// <summary>
+        /// Отправка писем сразу
+        /// </summary>
+        /// <param name="dtSend"></param>
+        /// <param name="emailSender"></param>
+        /// <param name="emails"></param>
+        public void SendEmails(EmailSendServiceClass emailSender, ObservableCollection<Email> emails)
+        {
+            this.emailSender = emailSender;
+            this.emails = emails;
+            emailSender.SendMails(emails);
         }
 
         private void Timer_Tick(object sender, EventArgs e)

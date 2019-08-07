@@ -22,13 +22,13 @@ namespace MailSenderNameSpace
         // пароль к email, с которого будет рассылаться почта
         private string strPassword;
         // smtp-server
-        private string strSmtp = "smtp.yandex.ru";
+        public string StrSmtp { get; set; }
         // порт для smtp-server
-        private int iSmtpPort = 25;
+        public int ISmtpPort { get; set; }
         // текст письма для отправки
         public string Body { get; set; }
         // тема письма для отправки
-        public string Subject = "Тест"; // Заголовок письма нигде не задается (!) исправить
+        public string Subject { get; set; }
         #endregion
 
 
@@ -49,7 +49,8 @@ namespace MailSenderNameSpace
                 mm.Subject = Subject;
                 mm.Body = Body;
                 mm.IsBodyHtml = false;
-                SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort)
+
+                SmtpClient sc = new SmtpClient(StrSmtp, ISmtpPort)
                 {
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
@@ -63,9 +64,10 @@ namespace MailSenderNameSpace
                 }
                 catch (Exception ex)
                 {
-                    
-                    MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
+
+                    MessageBox.Show("Невозможно отправить письмо: " + ex.ToString());
                 }
+
 
                 MessageBox.Show("Работа завершена.");
             }
