@@ -20,7 +20,7 @@ namespace MailSenderNameSpace
         EmailSendServiceClass emailSender;
 
         // Дата и время отправки
-        DateTime dtSend;
+        //DateTime dtSend;
 
         // Коллекция email-ов адресатов
         ObservableCollection<Email> emails;
@@ -59,11 +59,10 @@ namespace MailSenderNameSpace
         /// <param name="dtSend"></param>
         /// <param name="emailSender"></param>
         /// <param name="emails"></param>
-        public void SendEmails(DateTime dtSend, EmailSendServiceClass emailSender, ObservableCollection<Email> emails)
+        public void SendEmails(EmailSendServiceClass emailSender, ObservableCollection<Email> emails)
         {
             // Экземпляр класса, отвечающего за отправку писем, присваиваем
-            this.emailSender = emailSender; 
-            this.dtSend = dtSend;
+            this.emailSender = emailSender;
             this.emails = emails;
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 0, 1);
@@ -76,12 +75,12 @@ namespace MailSenderNameSpace
         /// <param name="dtSend"></param>
         /// <param name="emailSender"></param>
         /// <param name="emails"></param>
-        public void SendEmails(EmailSendServiceClass emailSender, ObservableCollection<Email> emails)
-        {
-            this.emailSender = emailSender;
-            this.emails = emails;
-            emailSender.SendMails(emails);
-        }
+        //public void SendEmails(EmailSendServiceClass emailSender, ObservableCollection<Email> emails)
+        //{
+        //    this.emailSender = emailSender;
+        //    this.emails = emails;
+        //    emailSender.SendMails(emails);
+        //}
 
         private void Timer_Tick(object sender, EventArgs e)
         {

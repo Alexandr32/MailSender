@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ListViewItemScheduler.ItemSchedulerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ListViewItemScheduler"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="40">
+    <StackPanel x:Name="listViewItemControl" Orientation="Horizontal">
+        <Button x:Name="btnEdit" VerticalAlignment="Center" Content="Edit" Click="BtnEdit_Click" />
+        <xctk:TimePicker x:Name="tbTimePicker" Text="{Binding Time}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="120"/>
+        <Button x:Name="btnDelete" VerticalAlignment="Center" Content="-" Click="BtnDelete_Click"  />
+
+    </StackPanel>
+</UserControl>

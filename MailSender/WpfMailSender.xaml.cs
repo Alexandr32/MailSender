@@ -114,32 +114,32 @@ namespace MailSenderNameSpace
         /// <param name="e"></param>
         private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
-            SchedulerClass sc = new SchedulerClass();
-            TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
-            if (tsSendTime == new TimeSpan())
-            {
-                MessageBox.Show("Некорректный формат даты");
-                return;
-            }
-            DateTime dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
-            if (dtSendDateTime < DateTime.Now)
-            {
-                MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
-                return;
-            }
-            EmailSendServiceClass emailSender = new EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
-            //sc.SendEmails(dtSendDateTime, emailSender, (Obse<Email>)dgEmails.ItemsSource);
+            //SchedulerClass sc = new SchedulerClass();
+            //TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
+            //if (tsSendTime == new TimeSpan())
+            //{
+            //    MessageBox.Show("Некорректный формат даты");
+            //    return;
+            //}
+            //DateTime dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+            //if (dtSendDateTime < DateTime.Now)
+            //{
+            //    MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
+            //    return;
+            //}
+            //EmailSendServiceClass emailSender = new EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
+            ////sc.SendEmails(dtSendDateTime, emailSender, (Obse<Email>)dgEmails.ItemsSource);
 
-            // Получаем доступ к ViewModelLocator
-            var locator = (ViewModelLocator)FindResource("Locator");
+            //// Получаем доступ к ViewModelLocator
+            //var locator = (ViewModelLocator)FindResource("Locator");
 
-            sc.SendEmails(dtSendDateTime, emailSender, locator.Main.Emails);
+            //sc.SendEmails(dtSendDateTime, emailSender, locator.Main.Emails);
 
         }
 
         private void TabSwitcherControl_btnNextClick(object sender, RoutedEventArgs e)
         {
-            tabControl.SelectedIndex = 2;
+            tabControl.SelectedIndex = 1;
         }
 
         private void TabSwitcherControl_btnPreviousClick(object sender, RoutedEventArgs e)

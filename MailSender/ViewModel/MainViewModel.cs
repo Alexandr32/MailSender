@@ -4,6 +4,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
 using MailSenderNameSpace.Services;
+using System;
+using System.Windows;
+using ListViewItemScheduler;
+using System.Collections.Generic;
+using MyToolBar;
 
 namespace MailSenderNameSpace.ViewModel
 {
@@ -26,6 +31,17 @@ namespace MailSenderNameSpace.ViewModel
         IDataAccessService _serviceProxy;
 
         public RelayCommand<Email> SaveCommand { get; set; }
+        /// <summary>
+        /// Св-во для обработки команд UI
+        /// </summary>
+        public RelayCommand ReadAllCommand { get; set; }
+
+        /// <summary>
+        /// Команда кнопки добавления нового запланированного письма
+        /// </summary>
+        public RelayCommand AddScheduledMailCommand { get; set; }
+        public RelayCommand<ToolBarControl> SendSchedulerCommand { get; set; }
+
 
         ObservableCollection<Email> _Emails = new ObservableCollection<Email>();
 
@@ -120,11 +136,6 @@ namespace MailSenderNameSpace.ViewModel
         }
 
         /// <summary>
-        /// Св-во для обработки команд UI
-        /// </summary>
-        public RelayCommand ReadAllCommand { get; set; }
-
-        /// <summary>
         /// Инициализирует новый экземпляр класса MainViewModel.
         /// </summary>
         // Объект DataAccessService будет доступен в MainViewModel благодаря IoC.
@@ -136,7 +147,54 @@ namespace MailSenderNameSpace.ViewModel
             // Передаем свойтву каой метод оно должно подтавлять при вызови этого св-ва
             ReadAllCommand = new RelayCommand(GetEmails);
             SaveCommand = new RelayCommand<Email>(SaveEmail);
+            AddScheduledMailCommand = new RelayCommand(AddScheduledMail);
+            SendSchedulerCommand = new RelayCommand<ToolBarControl>(SendScheduler);
 
+            ScheduledMail = new ObservableCollection<ItemSchedulerControl>();
+
+        }
+
+        /// <summary>
+        /// Отправляет запланированые почты
+        /// </summary>
+        private void SendScheduler(ToolBarControl tbSender)
+        {
+            var dic = new Dictionary<DateTime, string>();
+            foreach (var item in scheduledMail)
+            {
+                dic.Add(DateTime.Parse(item.Time), item.TextMail);
+            }
+
+            SchedulerClass sc = new SchedulerClass
+            {
+                DatesEmailTexts = dic
+            };
+
+            EmailSendServiceClass emailSender = new EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
+            //sc.SendEmails(dtSendDateTime, emailSender, (Obse<Email>)dgEmails.ItemsSource);
+            
+            sc.SendEmails(emailSender, Emails);
+
+            MessageBox.Show($"{tbSender.SelectedText}, {tbSender.SelectedValue}");
+        }
+
+        ObservableCollection<ItemSchedulerControl> scheduledMail;
+        public ObservableCollection<ItemSchedulerControl> ScheduledMail
+        {
+            get => scheduledMail;
+            set
+            {
+                scheduledMail = value;
+                RaisePropertyChanged(nameof(ScheduledMail));
+            }
+        }
+
+        /// <summary>
+        /// Добавляет запланированные письма
+        /// </summary>
+        void AddScheduledMail()
+        {
+            ScheduledMail.Add(new ItemSchedulerControl(ScheduledMail));
         }
     }
 }

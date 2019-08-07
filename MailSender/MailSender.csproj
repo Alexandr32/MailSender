@@ -187,6 +187,10 @@
       <Project>{78a8e4e6-8469-4d8e-908d-07527da37c59}</Project>
       <Name>CodePasswordDLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ListViewItemScheduler\ListViewItemScheduler.csproj">
+      <Project>{ca70e0a9-be88-4c5d-afcf-327ecc0e74b1}</Project>
+      <Name>ListViewItemScheduler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyToolBar\MyToolBar.csproj">
       <Project>{dd990aef-62b6-497a-b0f9-a25480ed8111}</Project>
       <Name>MyToolBar</Name>
