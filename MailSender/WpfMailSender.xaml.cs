@@ -68,8 +68,6 @@ namespace MailSenderNameSpace
             string strLogin = tbSender.SelectedText;
             string strPassword = tbSender.SelectedValue;
 
-            //MessageBox.Show(string.Format("strLogin = {0} strPassword ={1}", strLogin, strPassword));
-
             if (string.IsNullOrEmpty(strLogin))
             {
                 MessageBox.Show("Выберите отправителя");
@@ -99,20 +97,10 @@ namespace MailSenderNameSpace
                 Subject = "Рассылка"
             };
 
-            // Передаем данные из Grid со списком адресов
-            //emailSender.SendMails((IQueryable<Email>)dgEmails.ItemsSource);
 
             // Получаем доступ к ViewModelLocator
             var locator = (ViewModelLocator)FindResource("Locator");
 
-            //string mail = "";
-            //foreach (var item in locator.Main.Emails)
-            //{
-            //    mail = mail + item.Name + " "; 
-            //}
-
-            //MessageBox.Show(mail);
-            //emailSender.SendMails(locator.Main.Emails);
 
             SchedulerClass sc = new SchedulerClass();
             //sc.DatesEmailTexts = emailInfo.
