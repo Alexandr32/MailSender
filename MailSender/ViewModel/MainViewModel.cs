@@ -171,11 +171,8 @@ namespace MailSenderNameSpace.ViewModel
             };
 
             EmailSendServiceClass emailSender = new EmailSendServiceClass(tbSender.SelectedText, tbSender.SelectedValue);
-            //sc.SendEmails(dtSendDateTime, emailSender, (Obse<Email>)dgEmails.ItemsSource);
             
             sc.SendEmails(emailSender, Emails);
-
-            MessageBox.Show($"{tbSender.SelectedText}, {tbSender.SelectedValue}");
         }
 
         ObservableCollection<ItemSchedulerControl> scheduledMail;

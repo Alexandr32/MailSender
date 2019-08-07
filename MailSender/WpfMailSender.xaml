@@ -82,12 +82,12 @@
                     </Grid.ColumnDefinitions>
                     <Calendar Grid.Row="0" x:Name="cldSchedulDateTimes" HorizontalAlignment="Left" Margin="5,5,5,5" VerticalAlignment="Top" SelectionMode="MultipleRange"/>
                     
-                    <StackPanel Orientation="Vertical" Width="200" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" Width="325" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Left">
                         <Button Content="Добавить письмо" Command="{Binding AddScheduledMailCommand}" Style="{StaticResource AccentedSquareButtonStyle}" />
-                        <ListView x:Name="listScheduledMail" ItemsSource = "{Binding ScheduledMail}"/>
+                        <ListView x:Name="listScheduledMail" ItemsSource = "{Binding ScheduledMail}" HorizontalAlignment="Center"/>
                     </StackPanel>
 
-                    <xctk:TimePicker x:Name="tbTimePicker" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,8,5,5" Width="180" />
+                    <!--<xctk:TimePicker x:Name="tbTimePicker" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,8,5,5" Width="180" />-->
 
                     <Button x:Name="btnSend" Style="{DynamicResource SquareButtonStyle}" Margin="5,0,0,6" Grid.Row="2" Content="Отправить запланированно" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Command="{Binding SendSchedulerCommand}" 
                             CommandParameter="{Binding ElementName=tbSender}"/>

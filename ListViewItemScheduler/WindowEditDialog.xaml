@@ -16,8 +16,8 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="textMail" TextWrapping="Wrap" Text="{Binding TextMail}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-        <Button x:Name="save" Content="Сохранить" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Click="Save_Click" />
-        <Button x:Name="close" Content="Закрыть" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Click="Close_Click" />
+        <Button x:Name="save" Style="{StaticResource AccentedSquareButtonStyle}" Margin="5 5 5 5" Content="Сохранить" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Click="Save_Click" />
+        <Button x:Name="close" Style="{DynamicResource SquareButtonStyle}" Margin="5 5 5 5" Content="Закрыть" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Click="Close_Click" />
 
     </Grid>
 </Window>
