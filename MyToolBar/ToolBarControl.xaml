@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="MyToolBar.ToolBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyToolBar"
+             mc:Ignorable="d" 
+             Height="40">
+    <StackPanel x:Name="tbSender" Orientation="Horizontal">
+        <Label x:Name="label" Content="Выбрать отправителя" Width="130" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="comboBox" Height="25" VerticalAlignment="Center" Width="270">
+
+        </ComboBox>
+        <Button x:Name="btnAddSender" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" Width="25" Content="+" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Click="BtnAddSender_Click" />
+        <Button x:Name="btnEditSender" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="Edit"  FontSize="9" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Click="BtnEditSender_Click" />
+        <Button x:Name="btnDeleteSender" VerticalAlignment="Center" Margin="0,0,5,0" Height="25" Width="25" Content="-" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Click="BtnDeleteSender_Click" />
+    </StackPanel>
+</UserControl>

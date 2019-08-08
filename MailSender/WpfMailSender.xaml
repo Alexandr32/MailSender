@@ -1,0 +1,116 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:TabSwitcher="clr-namespace:TabSwitcher;assembly=TabSwitcher"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:MailSenderNameSpace"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:MyToolBar="clr-namespace:MyToolBar;assembly=MyToolBar"
+                      xmlns:Views="clr-namespace:MailSenderNameSpace.View"
+                      xmlns:ListViewItemScheduler="clr-namespace:ListViewItemScheduler;assembly=ListViewItemScheduler" x:Class="MailSenderNameSpace.WpfMailSender"
+                      mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Title="Рассыльщик спама" Height="550" Width="1200">
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Настройки" local:ContextMenuLeftClickBehavior.IsLeftClickEnabled="True">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Смена пользователя"/>
+                        <MenuItem Header="Выход" Click="MenuItem_Click"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <DockPanel>
+        <Controls:MetroAnimatedSingleRowTabControl x:Name="tabControl" Margin="10,10,10,10" TabStripPlacement="Left" Height="Auto" >
+            <TabItem Header="Формирование группы">
+                <Grid Background="#FFE5E5E5" Margin="10,10,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ToolBarTray Grid.ColumnSpan = "2" Margin="5,5,5,5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="Auto" Height="Auto">
+
+                        <ToolBar Band="1" BandIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                            <MyToolBar:ToolBarControl x:Name="tbSmtp" TextLabel="Выбрать smtp-сервер" VerticalAlignment = "Top" />
+                        </ToolBar>
+
+                        <ToolBar Band="2" BandIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto">
+                            <MyToolBar:ToolBarControl x:Name="tbSender" IsVisibalComboBox="True" VerticalAlignment="Top" TextLabel="Выбор отправитея" />
+                        </ToolBar>
+
+                        <ToolBar Band="2" BandIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto">
+                            <MyToolBar:ToolBarControl x:Name="tbAddressee" IsVisibalComboBox="False" VerticalAlignment="Top" TextLabel="Список адресатов" />
+                        </ToolBar>
+
+                        <ToolBar Band="1" BandIndex="1" x:Name="tbPlanner" HorizontalAlignment = "Left" VerticalAlignment = "Top" >
+                            <TabSwitcher:TabSwitcherControl Height="40" btnNextClick="TabSwitcherControl_btnNextClick" btnPreviousClick="TabSwitcherControl_btnPreviousClick" IsHidebtnPrevious="True"/>
+                        </ToolBar>
+
+                    </ToolBarTray>
+
+
+                    <Views:EmailInfoView x:Name = "emailInfo" Margin="5,5,5,5" Grid.Row = "1" Grid.Column = "0" VerticalAlignment = "Top" HorizontalAlignment = "Center" Grid.ColumnSpan = "1" />
+                    <Views:SaveEmailView x:Name = "saveEmail" Margin="5,5,5,5" Grid.Row = "1" Grid.Column = "1" VerticalAlignment = "Top" HorizontalAlignment = "Stretch" Grid.ColumnSpan = "1" />
+
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabPlanner"  Header="Планировщик">
+                <Grid Margin="10,10,10,10" Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Calendar Grid.Row="0" x:Name="cldSchedulDateTimes" HorizontalAlignment="Left" Margin="5,5,5,5" VerticalAlignment="Top" SelectionMode="MultipleRange"/>
+                    
+                    <StackPanel Orientation="Vertical" Width="325" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Left">
+                        <Button Content="Добавить письмо" Command="{Binding AddScheduledMailCommand}" Style="{StaticResource AccentedSquareButtonStyle}" />
+                        <ListView x:Name="listScheduledMail" ItemsSource = "{Binding ScheduledMail}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!--<xctk:TimePicker x:Name="tbTimePicker" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,8,5,5" Width="180" />-->
+
+                    <Button x:Name="btnSend" Style="{DynamicResource SquareButtonStyle}" Margin="5,0,0,6" Grid.Row="2" Content="Отправить запланированно" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Command="{Binding SendSchedulerCommand}" 
+                            CommandParameter="{Binding ElementName=tbSender}"/>
+                    <Button x:Name="btnSendAtOnce" Style="{StaticResource AccentedSquareButtonStyle}" Margin="5,0,0,5" Grid.Row="3" Content="Отправить Сразу" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Click="BtnSendAtOnce_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Редактор текста">
+                <Grid Background="#FFE5E5E5">
+                    <RichTextBox Margin="10,10,10,10">
+                        <FlowDocument>
+                            <Paragraph >
+                                <Run x:Name="editTextBodyMail"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Статистика">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+    </DockPanel>
+</Controls:MetroWindow>

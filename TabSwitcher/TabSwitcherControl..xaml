@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="TabSwitcher.TabSwitcherControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TabSwitcher"
+             mc:Ignorable="d" 
+             Height="35" >
+    <StackPanel Orientation="Horizontal">
+        
+        <Button x:Name="btnPrevious" Margin="2,2,2,2" Style="{StaticResource AccentedSquareButtonStyle}" Content="Назад" Click="BtnPrevious_Click" />
+        <Button x:Name="btnNext" Margin="2,2,2,2" Style="{StaticResource AccentedSquareButtonStyle}" Content="Вперед" Click="BtnNext_Click" />
+
+    </StackPanel>
+</UserControl>
