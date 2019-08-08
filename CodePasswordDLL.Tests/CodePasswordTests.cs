@@ -29,6 +29,24 @@ namespace CodePasswordDLL.Tests
             Assert.AreEqual(strExpected, strActual);
         }
 
-       
+        /// <summary>
+        /// Проверка правильности раскодировки пароля
+        /// </summary>
+        [TestMethod]
+        public void GetCodPassword_bcd_abc()
+        {
+            // Что подвется на вход
+            string strIn = "bcd";
+            // Что должно возвращать
+            string strExpected = "abc";
+
+            // Возвращаемое значение
+            string strActual = CodePassword.GetPassword(strIn);
+
+            //assert
+            Assert.AreEqual(strExpected, strActual);
+        }
+
+
     }
 }
