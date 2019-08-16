@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -41,8 +42,13 @@ namespace MailSenderNameSpace
         /// <summary>
         /// Отправка письма
         /// </summary>
-        public void SendEmail(string mail, string name)
+        public void SendEmail(Object email)
         {
+            string mail = string.Empty;
+            if (email is Email email1)
+            {
+                mail = email1.Name;
+            }
 
             using (MailMessage mm = new MailMessage(strLogin, mail))
             {
@@ -82,7 +88,9 @@ namespace MailSenderNameSpace
         {
             foreach (Email email in emails)
             {
-                SendEmail(email.Value, email.Name);
+
+                Thread thread = new Thread(new ParameterizedThreadStart(SendEmail));
+                thread.Start(email);
             }
         }
     }
